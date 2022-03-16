@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/models/catalog.dart';
 import 'package:flutter_learning/widgets/drawer.dart';
 
 import '../widgets/drawer.dart';
@@ -12,8 +13,11 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('OUM'),
       ),
-      body: const Center(
-        child: Text('Home'),
+      body: ListView.builder(
+        itemCount: CatalogModel.items.length,
+        itemBuilder: (context, index){
+          return ItemWidget();
+        },
       ),
       drawer: const MyDrawer(),
     );
